@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>帽子游戏</title>
+    <link href="static/css/index_like.css" rel="stylesheet" type="text/css" th:href="@{/css/index_like.css}">
+    <style>
+        form{
+            left: 300px;
+        };
+    </style>
+</head>
+
+<body>
+<form action="/getData" th:action="@{/getData}" method="post">
+    <span><b>次数</b></span>:<input name="count" th:value="${param.count}" value="">&emsp;&emsp;
+    <b>数字</b>:<input name="num" th:value="${param.num}" value="">
+    <input type="submit" value="提交">
+</form>
+<table>
+    <tr>
+        <th>A</th>
+        <th>B</th>
+        <th>C</th>
+    </tr>
+    <tr th:each="result:${resultList}">
+        <td>[[${result.a}]]</td>
+        <td>[[${result.b}]]</td>
+        <td>[[${result.c}]]</td>
+    </tr>
+</table>
+</body>
+</html>
